@@ -1,8 +1,9 @@
 const mongoose = require("mongoose");
-const uri = "mongodb+srv://victoria:CursoMDB@curso-mongodb.ykish.mongodb.net/test/crm-clientes";
+const config = require("../config")
+const uri = "";
 const DBConecction = async()=>{
     try{
-        await mongoose.connect(uri);
+        await mongoose.connect(config.mongoUri);
         console.log('DB is connected');
     }catch (error){
         console.log(error);

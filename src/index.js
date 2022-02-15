@@ -4,6 +4,7 @@ const productRoutes = require("../src/routes/product.route");
 const customerRoutes = require("../src/routes/customer.route");
 const cors  = require("cors");
 const DBConecction = require("../src/database/DBConecction.js")
+const config = require("./config")
 //Camel case
 async function startExpressServer(params){
 const app = express();
@@ -26,8 +27,8 @@ response.json({message: "HOLA DESDE EL SERVIDOR :)"});
 await DBConecction();
 
 const PORT=4000;
-app.listen(PORT, ()=>{
-    console.log(`Server listo en: http://localhost:${PORT}`);
+app.listen(config.port, ()=>{
+    console.log(`Server listo en: http://localhost:${config.port}`);
 });
 
 }
